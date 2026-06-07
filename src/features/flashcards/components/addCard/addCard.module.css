@@ -5,6 +5,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 0 0 1px #e8e4dc;
   overflow: hidden;
   font-family: "Segoe UI", "SF Pro Text", Cantarell, sans-serif;
+  margin: 20px;
 }
 
 /* ─── Header ─────────────────────────────────────────────────────────────── */
@@ -36,7 +37,6 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  padding: 24px;
 }
 
 /* Fila con dos campos lado a lado */
@@ -59,6 +59,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #7a7a72;
+  padding:10px;
 }
 
 /* ─── Inputs base ────────────────────────────────────────────────────────── */
@@ -76,6 +77,7 @@
   outline: none;
   width: 100%;
   box-sizing: border-box;
+  margin:5px;
 }
 
 .input::placeholder,
@@ -145,13 +147,6 @@
   margin-top: -1px;
 }
 
-/* ─── Responsive ─────────────────────────────────────────────────────────── */
-@media (max-width: 480px) {
-  .row {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ─── EditFlashcard extras ───────────────────────────────────────────────── */
 
 /* Variante del botón submit para edición — tono ámbar en lugar de verde */
@@ -177,4 +172,26 @@
   text-align: center;
   padding: 24px;
   margin: 0;
+}
+
+@media (max-width: 480px) {
+  .form {
+    margin: 10px 0px;
+  }
+   .row {
+    grid-template-columns: 1fr;
+  }
+  .input,
+.textarea,
+.select {
+  font-size: 1.3rem;
+  padding: 5px;
+}
+.label{
+  font-size: 0.9rem;
+  padding:10px;
+}
+.formSubtitle {
+  font-size: 0.95rem;
+}
 }

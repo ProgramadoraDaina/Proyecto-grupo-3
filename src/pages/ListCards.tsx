@@ -1,6 +1,7 @@
 import { FlashcardList } from "@/features/flashcards/components/cardList";
 import { EditFlashcard } from "@/features/flashcards/components/addCard/EditCard";
 import { useState } from "react";
+import style from "./listcards.module.css";
 
 const ListCards = () => {
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -8,15 +9,15 @@ const ListCards = () => {
   return (
     <div>
       <section>
-        <h2>Editar flashcard</h2>
+        <h2 className={style.title}>Editar flashcard</h2>
         {editingId ? (
           <EditFlashcard id={editingId} onDone={() => setEditingId(null)} />
         ) : (
-          <p>Seleccioná una card del listado para editarla.</p>
+          <p className={style.subtitle}>Seleccioná una card del listado para editarla.</p>
         )}
       </section>
       <section>
-        <h2>Listado</h2>
+        <h2  className={style.titlelist}>Listado</h2>
         <FlashcardList onEdit={setEditingId} />
       </section>
     </div>

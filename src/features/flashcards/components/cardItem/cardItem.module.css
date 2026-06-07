@@ -206,3 +206,6 @@
   border-color: var(--fc-miss);
   box-shadow: 0 2px 8px rgba(192, 90, 58, 0.25);
 }
+@media (max-width: 480px) {
+  
+}

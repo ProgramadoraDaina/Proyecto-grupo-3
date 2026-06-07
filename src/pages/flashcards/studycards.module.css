@@ -1,9 +1,8 @@
 .container {
-    height: calc(100vh - 139px);
-    /* resta header + footer */
+    height: calc(100vh - 139px);/* resta header + footer */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 15px;
     padding-top: 10px;
@@ -11,10 +10,11 @@
 }
 
 .cardWrapper {
-    width: 420px;
-    height: 220px;
-    flex-grow: 1;/* 🔥 ocupa espacio disponible */
+    width: 820px;
+    height: 320px;
+    /* 🔥 ocupa espacio disponible */
     display: flex;
+    perspective: 1000px;
 }
 
 .cardInner {
@@ -35,10 +35,13 @@
     height: 100%;
     backface-visibility: hidden;
     display: flex;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
     border: 2px solid black;
     border-radius: 12px;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 .front {
@@ -48,4 +51,12 @@
 .back {
     background: #dff0d8;
     transform: rotateY(180deg);
+}
+
+@media (max-width: 480px) {
+    .cardWrapper {
+        width: 250px;
+        height: 600px;
+        flex-grow: 0; 
+    }
 }
