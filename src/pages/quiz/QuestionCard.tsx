@@ -1,4 +1,5 @@
-import style from "./quiz.module.css";
+import styles from "./quiz.module.css";
+import cardStyles from "../../shared/styles/card.module.css";
 
 type Props = {
   question: string;
@@ -18,20 +19,20 @@ const QuestionCard = ({
   handleSelect,
 }: Props) => {
   return (
-    <div className={style.cardWrapper}>
-      <div className={`${style.cardInner} ${flipped ? style.flipped : ""}`}>
+    <div  className={`${cardStyles.cardWrapper} ${cardStyles.cardSizeDefault} ${cardStyles.cardQuizMobile}`}>
+      <div className={`${cardStyles.cardInner} ${flipped ? cardStyles.flipped : ""}`}>
 
         {/* 🔹 FRONT */}
-        <div className={`${style.cardFace} ${style.front}`}>
-          <div className={style.cardContent}>
+        <div className={`${cardStyles.cardFace} ${styles.cardFace} ${cardStyles.front} ${styles.front}`}>
+          <div className={styles.cardContent}>
           <h2>{question}</h2>
 
-          <div className={style.optionsContainer}>
+          <div className={styles.optionsContainer}>
             {options.map((opt, i) => (
               <button
                 key={i}
                 onClick={() => handleSelect(opt)}
-                className={style.optionButton}
+                className={styles.optionButton}
               >
                 {opt}
               </button>
@@ -41,16 +42,16 @@ const QuestionCard = ({
 </div>
         {/* 🔹 BACK */}
         <div
-          className={`${style.cardFace} ${style.back} ${
+          className={`${cardStyles.cardFace} ${styles.cardFace} ${cardStyles.back} ${
             selected === answer
-              ? style.correct
-              : style.incorrect
+              ? styles.correct
+              : styles.incorrect
           }`}
         >
-         <div className={style.cardContent}>
+         <div className={styles.cardContent}>
   <h2>{answer}</h2>
 
-  <div className={style.optionsContainer} style={{ visibility: "hidden" }}>
+  <div className={styles.optionsContainer} style={{ visibility: "hidden" }}>
     placeholder
   </div>
 </div>

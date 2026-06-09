@@ -1,5 +1,5 @@
 import styles from "../../../../pages/flashcards/studycards.module.css";
-
+import cardStyles from "../../../../shared/styles/card.module.css";
 type Props = {
   hasCards: boolean;
   currentIndex: number;
@@ -29,18 +29,18 @@ const StudyMain = ({
             {currentIndex + 1} / {total}
           </p>
 
-          <div className={styles.cardWrapper} onClick={handleClick}>
+          <div className={`${cardStyles.cardWrapper} ${cardStyles.cardSizeDefault} ${cardStyles.cardStudyMobile}`}
+            onClick={handleClick}>
             <div
-              className={`${styles.cardInner} ${
-                showAnswer ? styles.flipped : ""
-              }`}
+              className={`${cardStyles.cardInner} ${showAnswer ? cardStyles.flipped : ""
+                }`}
             >
-              <div className={`${styles.cardFace} ${styles.front}`}>
+              <div className={`${cardStyles.cardFace} ${cardStyles.front} ${styles.front}`}>
                 {card.question}
               </div>
 
               <div
-                className={`${styles.cardFace} ${styles.back} ${styles[filter]}`}
+                className={`${cardStyles.cardFace} ${cardStyles.back} ${styles.back} ${styles[filter]}`}
               >
                 {card.answer}
               </div>

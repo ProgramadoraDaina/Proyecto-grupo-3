@@ -1,5 +1,5 @@
 import styles from "../../../../pages/flashcards/studycards.module.css";
-
+import difficulties from "../../../../shared/styles/difficulty.module.css"
 type Props = {
   filter: string;
   setFilter: (val: string) => void;
@@ -26,7 +26,7 @@ const Sidebar = ({
       <h3>Filtrar</h3>
 
       <select
-        className={styles[filter]}
+        className={difficulties[filter]}
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
       >
@@ -42,7 +42,7 @@ const Sidebar = ({
             key={i}
             className={`
               ${styles.listItem}
-              ${styles[c.difficulty]}
+              ${difficulties[c.difficulty]}
               ${i === currentIndex ? styles.active : ""}
             `}
             onClick={() => {

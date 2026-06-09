@@ -29,7 +29,12 @@ const StudyCards = () => {
     if (!isAnswerVisible) {
       setIsAnswerVisible(true);
     } else {
-      setCurrentIndex((prev) => (prev + 1) % filteredCards.length);
+      setCurrentIndex((prev) => {
+  if (prev < filteredCards.length - 1) {
+    return prev + 1;
+  }
+  return 0;
+});
       setIsAnswerVisible(false);
     }
   };

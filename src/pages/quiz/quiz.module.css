@@ -3,7 +3,12 @@
   display: flex;
   justify-content: center;/* 🔥 centra TODO */
 }
-
+.front {
+    border: 2px solid #000000;
+}
+.cardFace {
+flex-direction: column;
+}
 .main {
  
   display: flex;
@@ -11,47 +16,6 @@
   align-items: center;/* 🔥 centra contenido interno */
 }
 
-/* 🔹 CARD */
-
-.cardWrapper {
-    width: 820px;
-    height: 320px;
-    display: block;
-    perspective: 1000px;
-    margin:5px;
-}
-
-.cardInner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-}
-
-.flipped {
-  transform: rotateY(180deg);
-}
-
-.cardFace {
-  position: absolute;
-  backface-visibility: hidden;
-
-width: 100%;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;/* 🔥 centra verticalmente */
-  align-items: center;/* 🔥 centra horizontalmente */
-
-  border: 2px solid black;
-  border-radius: 12px;
-  text-align: center;
-  padding: 15px;
-  box-sizing: border-box;
-}
 .progress {
   font-size: 1rem;
   font-weight: 600;
@@ -94,23 +58,16 @@ width: 100%;
   flex-direction: column;
   gap: 15px; /* 🔥 separación entre cada reviewItem */
 }
-.front {
-  background: white;
-}
-
-.back {
-  transform: rotateY(180deg);
-}
 
 /* 🔹 colores dinámicos */
 .correct {
   background: #c8f7c5;
-  border-color: #4caf50;
+  border: 2px solid #4caf50;
 }
 
 .incorrect {
   background: #f7c5c5;
-  border-color: #f44336;
+  border: 2px solid #f44336;
 }
 
 /* 🔹 GRID OPCIONES */
