@@ -1,6 +1,6 @@
 import styles from "../../../../pages/flashcards/studycards.module.css";
-import difficulties from "../../../../shared/styles/difficulty.module.css"
-import sidebar from "../../../../pages/flashcards/sidebar.module.css";
+import difficulties from "../../../../shared/design/difficulty.module.css";
+import sidebar from "./sidebar.module.css";
 type Props = {
   filter: string;
   setFilter: (val: string) => void;

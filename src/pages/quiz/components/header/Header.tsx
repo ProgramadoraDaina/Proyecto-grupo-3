@@ -1,4 +1,4 @@
-import styles from "./quiz.module.css";
+import styles from "../../quiz.module.css";
 
 const Header = () => (
     <div className={styles.header}>

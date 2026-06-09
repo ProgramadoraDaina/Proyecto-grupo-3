@@ -1,5 +1,5 @@
 import styles from "../../../../pages/flashcards/studycards.module.css";
-import cardStyles from "../../../../shared/styles/card.module.css";
+import cardStyles from "../../../../shared/components/ui/flipcard/card.module.css";
 type Props = {
   hasCards: boolean;
   currentIndex: number;

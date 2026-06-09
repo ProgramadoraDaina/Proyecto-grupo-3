@@ -1,6 +1,6 @@
-import styles from "./quiz.module.css";
-import cardStyles from "../../shared/styles/card.module.css";
-import review from "./review.module.css";
+import styles from "../../quiz.module.css";
+import cardStyles from "../../../../shared/components/ui/flipcard/card.module.css";
+import review from "../review/review.module.css";
 
 type Props = {
   question: string;

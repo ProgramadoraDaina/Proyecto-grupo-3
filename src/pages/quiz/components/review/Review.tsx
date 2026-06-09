@@ -1,7 +1,7 @@
-import styles from "./quiz.module.css";
+import styles from "../../quiz.module.css";
 import review from "./review.module.css"
-import result from "./result.module.css";
-import button from "./button.module.css";
+import result from "../result/result.module.css";
+import button from "../../../../shared/components/ui/button/button.module.css";
 type Answer = {
   question: string;
   correctAnswer: string;

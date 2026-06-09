@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useFlashcardStore } from "../../features/flashcards/store";
 import styles from "./quiz.module.css";
 
-import Header from "./Header";
-import QuestionCard from "./QuestionCard";
-import Result from "./Result";
-import Review from "./Review";
+import Header from "./components/header/Header";
+import QuestionCard from "./components/question/QuestionCard";
+import Result from "./components/result/Result";
+import Review from "./components/review/Review";
 
 type Answer = {
   question: string;
