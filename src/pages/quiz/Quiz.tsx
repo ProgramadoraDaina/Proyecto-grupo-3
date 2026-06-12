@@ -12,6 +12,8 @@ type Answer = {
   correctAnswer: string;
   userAnswer: string;
   isCorrect: boolean;
+  hits: number;
+  misses: number;
 };
 
 const Quiz = () => {
@@ -67,6 +69,8 @@ const Quiz = () => {
         correctAnswer: currentFlashcard.answer,
         userAnswer: option,
         isCorrect,
+        hits: currentFlashcard.hits,
+        misses: currentFlashcard.misses,
       },
     ]);
 
@@ -137,6 +141,8 @@ if (finished) {
           selected={selectedOption}
           options={options}
           handleSelect={handleOptionSelect}
+          hits={currentFlashcard.hits}
+          misses={currentFlashcard.misses}
         />
       </div>
     </div>
