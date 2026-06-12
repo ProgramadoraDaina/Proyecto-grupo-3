@@ -5,7 +5,8 @@
 }
 .cardSizeDefault {
   width: 820px;
-  height: 320px;
+  min-height: 440px;
+  height: auto;
 }
 .cardInner {
     width: 100%;
@@ -23,11 +24,12 @@
     height: 100%;
     backface-visibility: hidden;
     display: flex;
-    justify-content:center;
+    flex-direction: column;   
+    justify-content: space-between;
     align-items: center;
     border-radius: 12px;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     box-sizing: border-box;
 }
 .front {
@@ -48,9 +50,13 @@
         flex-grow: 0; 
     }
     .cardQuizMobile {
-    height: 360px;
+    height: 620px;
     width: 95%;
     max-width: 400px;
   }
+    .cardQuizMobile .cardFace {
+        height: 100%;
+        padding: 15px; 
+    }
 
 }
