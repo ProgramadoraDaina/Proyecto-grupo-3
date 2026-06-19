@@ -1,4 +1,4 @@
-import { FlashcardList } from "@/features/flashcards/components/cardList";
+import { FlashcardList } from "@/features/flashcards/components/cardList/cardList";
 import { EditFlashcard } from "@/features/flashcards/components/addCard/EditCard";
 import { useState } from "react";
 import style from "./listcards.module.css";
