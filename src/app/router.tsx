@@ -1,13 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom';
 // Nota: Si el error de RootLayout persiste, borra esto, escribe @/shared/ 
 // y usa Ctrl + Espacio para elegir el archivo correcto.
-import { RootLayout } from "@/shared/RootLayout"; 
+import { RootLayout } from "../shared/components/layout/RootLayout"; 
 import { HomePage } from "@/pages/home/HomePage";
 import { CreateCards } from '@/features/flashcards/components/createCard/CreateCards';
-import { ListCards } from '@/features/flashcards/components/ListCards/ListCards';
-import { StudyCards } from '@/pages/flashcards/StudyCards';
-import { Quiz } from '@/pages/quiz/Quiz';
-import { ProgressPage } from '@/pages/progress/ProgressPage';
+import ListCards from '../features/flashcards/components/ListCards/ListCards';
+import StudyCards from '../pages/flashcards/StudyCards';
+import Quiz from '../pages/quiz/Quiz';
+import ProgressPage from '../pages/progress/ProgressPage';
 
 export const router = createBrowserRouter([
     {
