@@ -71,9 +71,9 @@ const StudyCards = () => {
     }
   };
 
-  const toggleMenu = () => {
-    setMenuOpen(prev => !prev);
-  };
+const toggleMenu = () => {
+  setMenuOpen(prev => !prev);
+};
 
   return (
     <>
@@ -81,20 +81,37 @@ const StudyCards = () => {
       onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </button>
-    </div>
 
-      <StudyMain
-        hasCards={hasCards}
-        currentIndex={currentIndex}
-        total={filteredCards.length}
-        card={card}
-        showAnswer={isAnswerVisible}
-        handleClick={handleClick}
-        onMenuClick={toggleMenu}
-        menuOpen={menuOpen} 
-      />
-    </div>
+      <div className={styles.layout}>
+        <Sidebar
+          // --- PASAMOS LOS NUEVOS FILTROS ---
+          filterType={filterType}
+          setFilterType={setFilterType}
+          filterValue={filterValue}
+          setFilterValue={setFilterValue}
+          materiasUnicas={materiasUnicas}
+          // ----------------------------------
+          filteredCards={filteredCards}
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+          setShowAnswer={setIsAnswerVisible}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+        />
+
+        <StudyMain
+          hasCards={hasCards}
+          currentIndex={currentIndex}
+          total={filteredCards.length}
+          card={card}
+          showAnswer={isAnswerVisible}
+          handleClick={handleClick}
+          onMenuClick={toggleMenu}
+          filter={filterValue} // Usamos el valor actual
+        />
+      </div>
+    </>
   );
 };
 
-export default StudyCards;
+export default StudyCards; 
