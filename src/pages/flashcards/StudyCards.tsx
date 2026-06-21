@@ -56,13 +56,16 @@ const StudyCards = () => {
     }
   };
 
+const toggleMenu = () => {
+  setMenuOpen(prev => !prev);
+};
+
   return (
     <>
       <button className={styles.menuButton}
       onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </button>
-    </div>
 
       <div className={styles.layout}>
         <Sidebar
@@ -88,6 +91,7 @@ const StudyCards = () => {
           card={card}
           showAnswer={isAnswerVisible}
           handleClick={handleClick}
+          onMenuClick={toggleMenu}
           filter={filterValue} // Usamos el valor actual
         />
       </div>
@@ -95,4 +99,4 @@ const StudyCards = () => {
   );
 };
 
-export default StudyCards;
+export default StudyCards; 
