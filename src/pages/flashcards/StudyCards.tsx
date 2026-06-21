@@ -58,10 +58,14 @@ const StudyCards = () => {
 
   return (
     <>
-      <button className={styles.menuButton}
-      onClick={() => setMenuOpen(!menuOpen)}>
+    <div className={styles.containerBtn}>
+      <button
+        className={styles.menuButton}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
         ☰
       </button>
+    </div>
 
       <div className={styles.layout}>
         <Sidebar
