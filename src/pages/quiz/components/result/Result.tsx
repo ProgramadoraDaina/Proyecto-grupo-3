@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-// Ruta corregida y uso de 'type' para cumplir con verbatimModuleSyntax
-import { useFlashcardStore, type FlashcardState } from "../../../../features/flashcards/store"; 
 import styles from "./result.module.css";
 
 type Props = {
@@ -15,21 +12,8 @@ const Result = ({ score, total, onReview, onRetry }: Props) => {
   const addResult = useFlashcardStore((s: FlashcardState) => s.addResult);
   const percentage = Math.round((score / total) * 100);
 
-  // Guardamos el resultado automáticamente cuando se monta este componente
-  useEffect(() => {
-    addResult(score, total);
-  }, [score, total, addResult]);
-
-  // 🟢 Lógica para elegir el color pastel dinámico
-  const getThemeClass = () => {
-    if (percentage >= 75) return styles.greenTheme;
-    if (percentage >= 50) return styles.yellowTheme;
-    return styles.redTheme;
-  };
-
   return (
-    // Aplicamos la clase dinámica junto a la clase base resultCard
-    <div className={`${styles.resultCard} ${getThemeClass()}`}>
+    <div className={styles.resultCard}>
       <h2 className={styles.title}>¡Resultado Final!</h2>
       
       <div className={styles.statsGrid}>

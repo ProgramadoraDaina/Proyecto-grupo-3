@@ -15,11 +15,9 @@ const StudyCards = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
   
-  // 🔹 Arranca en TRUE para que en la compu empiece abierta
   const [menuOpen, setMenuOpen] = useState(true);
 
   useEffect(() => {
-    // Si la pantalla es de celular/tablet al cargar, la cerramos por defecto
     if (typeof window !== "undefined" && window.innerWidth <= 1024) {
       setMenuOpen(false);
     }
@@ -32,7 +30,11 @@ const StudyCards = () => {
   const filteredCards = useMemo(() => {
     if (filterType === "all") return flashcards;
     if (filterType === "difficulty") return flashcards.filter(c => c.difficulty === filterValue);
-    if (filterType === "materia") return flashcards.filter(c => c.topic === filterValue);
+    if (filterType === "materia") {
+      // 🔥 Como filterValue ya viene normalizado desde el Sidebar, 
+      // solo comparamos el topic de la tarjeta (también normalizado)
+      return flashcards.filter(c => normalize(c.topic) === filterValue);
+    }
     return flashcards;
   }, [flashcards, filterType, filterValue]);
 
