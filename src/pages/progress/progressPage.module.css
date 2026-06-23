@@ -1,3 +1,7 @@
+/* ==========================================================================
+   progressPage.module.css (Estilo Glassmorphism Premium - AJUSTE FINAL)
+   ========================================================================== */
+
 .main {
   max-width: 1100px;
   margin: 0 auto;
@@ -103,7 +107,6 @@
   align-items: center;
   position: relative; 
   min-height: 220px;
-  /* 🟢 CRÍTICO: Evita que los gráficos pinchen el layout rompiendo el responsive */
   min-width: 0;
   overflow: hidden;
 }
@@ -139,7 +142,6 @@
   color: #1e3a8a;
   line-height: 1;
   margin: 5px 0;
-  transition: font-size 0.2s ease;
 }
 
 .cardSubtitle {
@@ -158,11 +160,6 @@
   padding: 0 10px;
 }
 
-.chartHeader .cardTitle {
-  white-space: nowrap; 
-  margin: 0;
-}
-
 .filterSelect {
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(139, 92, 246, 0.4);
@@ -175,16 +172,9 @@
   cursor: pointer;
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.15);
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  width: auto;
 }
 
-.filterSelect:hover, .filterSelect:focus {
-  border-color: rgba(139, 92, 246, 0.8);
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
-}
-
-/* --- ESTILOS PARA LA DISTRIBUCIÓN DE DIFICULTAD --- */
+/* --- ESTILOS PIE CHART --- */
 .pieContent {
   display: flex;
   width: 100%;
@@ -201,62 +191,16 @@
   flex-shrink: 0;
 }
 
-.pieNumber {
-  font-size: 2rem;
-  font-weight: 800;
-  fill: #1e293b;
-}
+.pieNumber { font-size: 2rem; font-weight: 800; fill: #1e293b; }
+.pieLabelText { font-size: 0.85rem; fill: #64748b; font-weight: 600; }
+.legendWrapper { display: flex; flex-direction: column; flex: 1; margin-left: 15px; }
+.legendItem { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; font-size: 0.95rem; font-weight: 700; color: #1e293b; }
+.legendLeft { display: flex; align-items: center; gap: 10px; }
+.dot { width: 14px; height: 14px; border-radius: 50%; }
+.legendRight { color: #64748b; font-weight: 600; white-space: nowrap; text-align: right; }
+.legendDivider { border: none; border-top: 1px solid rgba(0, 0, 0, 0.08); margin: 0; width: 100%; }
 
-.pieLabelText {
-  font-size: 0.85rem;
-  fill: #64748b;
-  font-weight: 600;
-}
-
-.legendWrapper {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  margin-left: 15px;
-}
-
-.legendItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #1e293b;
-}
-
-.legendLeft {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-}
-
-.legendRight {
-  color: #64748b;
-  font-weight: 600;
-  white-space: nowrap; 
-  text-align: right;
-}
-
-.legendDivider {
-  border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  margin: 0;
-  width: 100%;
-}
-
-/* --- FOOTER QUOTE CON BURBUJA --- */
+/* --- FOOTER QUOTE --- */
 .footerQuote {
   display: flex;
   align-items: center;
@@ -279,116 +223,17 @@
   box-shadow: 0 6px 15px rgba(168, 85, 247, 0.4);
 }
 
-.quoteText {
-  font-size: 1rem;
-  color: #475569;
-  font-weight: 600;
-  margin: 0;
-  line-height: 1.5;
-}
+.quoteText { font-size: 1rem; color: #475569; font-weight: 600; margin: 0; line-height: 1.5; }
 
-
-/* ==========================================================================
-   DISEÑO RESPONSIVE PERFECTO
-   ========================================================================== */
-
-/* 🟢 TABLETS (Pantallas medianas como iPads) */
+/* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
-  /* Pasamos las 3 tarjetas de arriba a 2 columnas para que tengan aire */
-  .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* El gráfico lineal pasa a ocupar todo el ancho superior y la dona baja */
-  .bottomGrid {
-    grid-template-columns: 1fr;
-  }
-  
-  /* Achicamos un poco el número de las tarjetas para que no desborde */
-  .cardNumber {
-    font-size: 3.5rem;
-  }
-
-  .pieContent {
-    justify-content: center;
-    gap: 40px;
-  }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .bottomGrid { grid-template-columns: 1fr; }
 }
 
-/* 🟢 CELULARES (Pantallas chicas) */
 @media (max-width: 768px) {
-  .main {
-    padding-top: 100px;
-  }
-
-  .heading {
-    font-size: 2.2rem;
-  }
-
-  /* Todo pasa a 1 sola columna bien limpia */
-  .statsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Achicamos el número un poco más para pantallas de celulares */
-  .cardNumber {
-    font-size: 3.2rem;
-  }
-
-  /* El temporizador se apila vertical */
-  .timerDisplay {
-    flex-direction: column;
-    gap: 8px;
-    padding: 15px 25px;
-    border-radius: 25px;
-    text-align: center;
-  }
-
-  .timerValue {
-    margin-right: 0;
-  }
-
-  /* El título del gráfico y su filtro se mantienen en línea pero cómodos */
-  .chartHeader {
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-  }
-
-  .filterSelect {
-    width: auto;
-  }
-
-  /* El anillo de dificultad y sus textos se ponen uno abajo del otro */
-  .pieContent {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .legendWrapper {
-    margin-left: 0;
-    width: 100%;
-  }
-
-  /* La frase motivacional se centra */
-  .footerQuote {
-    flex-direction: column;
-    text-align: center;
-    padding: 25px 20px;
-  }
-
-  .quoteBubble {
-    border-radius: 50%;
-  }
-}
-
-/* 🟢 CELULARES MUY CHICOS */
-@media (max-width: 480px) {
-  .heading {
-    font-size: 1.8rem;
-  }
-  
-  .cardNumber {
-    font-size: 3rem;
-  }
+  .statsGrid { grid-template-columns: 1fr; }
+  .timerDisplay { flex-direction: column; gap: 8px; }
+  .pieContent { flex-direction: column; gap: 25px; }
+  .footerQuote { flex-direction: column; text-align: center; }
 }

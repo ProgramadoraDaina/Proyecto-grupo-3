@@ -53,18 +53,18 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 15px;
-  border-radius: 20px; /* Bordes un poco más redondos como burbuja */
+  border-radius: 20px; /* Bordes más redondos */
   font-family: 'Inter', sans-serif;
   
-  /* Borde blanco sólido pero fino para definir la burbuja */
+  /* Borde blanco sólido fino para definir la burbuja */
   border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Sombrita muy suave para dar volumen */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Sombra suave para volumen */
 }
 
 .statBox span, .percentageBox p {
   display: block;
   font-size: 0.9rem;
-  color: #475569; /* Gris oscuro para que se lea perfecto sobre blanco */
+  color: #475569; /* Gris oscuro para legibilidad */
   margin-bottom: 5px;
   font-weight: 600;
   text-transform: uppercase;
@@ -72,13 +72,13 @@
 }
 
 .statBox strong, .percentageBox strong {
-  font-size: 1.4rem; /* Un pelín más grande el número */
+  font-size: 1.4rem;
   color: #1e293b;
   font-weight: 800;
   display: block;
 }
 
-/* Ajuste específico para el porcentaje que es más grande */
+/* Ajuste específico para el porcentaje */
 .percentageBox { margin-bottom: 30px; padding: 25px !important; }
 .percentageBox strong { font-size: 3rem !important; }
 
@@ -115,21 +115,21 @@
 /* --- CLASES DE COLORES CON MÁS INTENSIDAD (SOBRESCRIBEN BASE) --- */
 
 .greenTheme {
-  background: rgba(187, 247, 208, 0.6) !important; /* Verde pastel más sólido */
+  background: rgba(187, 247, 208, 0.6) !important;
   border: 2px solid #86efac !important;
-  background-image: none !important; /* Quitamos el degradado arcoíris base */
+  background-image: none !important;
   box-shadow: 0 10px 30px rgba(134, 239, 172, 0.4);
 }
 
 .yellowTheme {
-  background: rgba(254, 252, 191, 0.6) !important; /* Amarillo pastel más sólido */
+  background: rgba(254, 252, 191, 0.6) !important;
   border: 2px solid #fde047 !important;
   background-image: none !important;
   box-shadow: 0 10px 30px rgba(253, 224, 71, 0.4);
 }
 
 .redTheme {
-  background: rgba(254, 226, 226, 0.6) !important; /* Rojo pastel más sólido */
+  background: rgba(254, 226, 226, 0.6) !important;
   border: 2px solid #fca5a5 !important;
   background-image: none !important;
   box-shadow: 0 10px 30px rgba(252, 165, 165, 0.4);

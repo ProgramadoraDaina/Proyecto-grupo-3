@@ -29,33 +29,27 @@ export default function ProgressPage() {
   const currentStreak = useMemo(() => {
     if (!quizHistory || quizHistory.length === 0) return 0;
 
-    // Obtenemos todas las fechas únicas donde el usuario completó un quiz
     const uniqueDates = Array.from(new Set(quizHistory.map(h => h.date.split('T')[0])));
-    
     let streak = 0;
     const today = new Date();
     const todayStr = today.toISOString().split('T')[0];
-    
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
     const yesterdayStr = yesterday.toISOString().split('T')[0];
 
-    // Si no estudió ni hoy ni ayer, la racha se rompió y es 0
     if (!uniqueDates.includes(todayStr) && !uniqueDates.includes(yesterdayStr)) {
       return 0; 
     }
 
-    // Empezamos a contar desde hoy (si estudió hoy) o desde ayer
     const checkDate = new Date(uniqueDates.includes(todayStr) ? todayStr : yesterdayStr);
     
-    // Contamos para atrás día por día mientras haya registro
     while (true) {
       const checkStr = checkDate.toISOString().split('T')[0];
       if (uniqueDates.includes(checkStr)) {
         streak++;
-        checkDate.setDate(checkDate.getDate() - 1); // Restamos un día
+        checkDate.setDate(checkDate.getDate() - 1);
       } else {
-        break; // Encontramos un hueco, fin de la racha
+        break;
       }
     }
     return streak;
@@ -146,7 +140,6 @@ export default function ProgressPage() {
       </div>
 
       <div className={styles.statsGrid}>
-        {/* Tarjeta 1: RACHA INTELIGENTE */}
         <div className={styles.glassCard} style={{ 
           background: "linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(254, 215, 170, 0.4) 100%)",
           border: "1px solid rgba(249, 115, 22, 0.5)",
@@ -156,13 +149,11 @@ export default function ProgressPage() {
             <Flame size={24} color="#f97316" />
           </div>
           <p className={styles.cardTitle}>Racha Actual</p>
-          {/* 🟢 Imprimimos la variable inteligente acá */}
           <h2 className={styles.cardNumber}>{currentStreak}</h2>
           <span className={styles.cardSubtitle}>días seguidos</span>
           <Wave startColor="#f97316" endColor="#fbbf24" id="wave1" />
         </div>
 
-        {/* Tarjeta 2 */}
         <div className={styles.glassCard} style={{ 
           background: "linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(221, 214, 254, 0.4) 100%)",
           border: "1px solid rgba(139, 92, 246, 0.5)",
@@ -177,7 +168,6 @@ export default function ProgressPage() {
           <Wave startColor="#8b5cf6" endColor="#c4b5fd" id="wave2" />
         </div>
 
-        {/* Tarjeta 3 */}
         <div className={styles.glassCard} style={{ 
           background: "linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(187, 247, 208, 0.4) 100%)",
           border: "1px solid rgba(34, 197, 94, 0.5)",
@@ -194,7 +184,6 @@ export default function ProgressPage() {
       </div>
 
       <div className={styles.bottomGrid}>
-        {/* Rendimiento Diario */}
         <div className={styles.glassCard} style={{ 
           background: "linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(221, 214, 254, 0.2) 100%)", 
           border: "1px solid rgba(139, 92, 246, 0.5)",
@@ -226,7 +215,6 @@ export default function ProgressPage() {
           </ResponsiveContainer>
         </div>
 
-        {/* Distribución Dificultad */}
         <div className={styles.glassCard} style={{ 
           background: "linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(254, 205, 211, 0.2) 100%)", 
           border: "1px solid rgba(244, 114, 182, 0.5)",
@@ -287,7 +275,6 @@ export default function ProgressPage() {
           La constancia es más importante que la intensidad. Sigue avanzando, cada tarjeta te acerca a tu meta.
         </p>
       </div>
-
     </main>
   );
 }
