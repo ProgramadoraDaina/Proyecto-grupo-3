@@ -20,16 +20,8 @@ const Result = ({ score, total, onReview, onRetry }: Props) => {
     addResult(score, total);
   }, [score, total, addResult]);
 
-  // 🟢 Lógica para elegir el color pastel dinámico
-  const getThemeClass = () => {
-    if (percentage >= 75) return styles.greenTheme;
-    if (percentage >= 50) return styles.yellowTheme;
-    return styles.redTheme;
-  };
-
   return (
-    // Aplicamos la clase dinámica junto a la clase base resultCard
-    <div className={`${styles.resultCard} ${getThemeClass()}`}>
+    <div className={styles.resultCard}>
       <h2 className={styles.title}>¡Resultado Final!</h2>
       
       <div className={styles.statsGrid}>
