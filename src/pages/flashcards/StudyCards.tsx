@@ -1,10 +1,10 @@
+// 
 import { useState, useEffect, useMemo } from "react";
-import { useFlashcardStore } from "../../features/flashcards/store";
+import { useFlashcardStore } from "@/features/flashcards/store";
 import styles from "./studycards.module.css";
-import Sidebar from "./components/sidebar/Sidebar";
-import StudyMain from "./components/studymain/StudyMain";
+import Sidebar from "@/pages/flashcards/components/sidebar/Sidebar";
+import StudyMain from "@/pages/flashcards/components/studymain/StudyMain";
 
-// 🔥 Función de normalización para asegurar coincidencias sin importar tildes/mayúsculas
 const normalize = (str: string) => 
   str.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
@@ -14,7 +14,6 @@ const StudyCards = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
-  
   const [menuOpen, setMenuOpen] = useState(true);
 
   useEffect(() => {
@@ -26,22 +25,17 @@ const StudyCards = () => {
   const [filterType, setFilterType] = useState("all");
   const [filterValue, setFilterValue] = useState("");
 
-  // --- FILTRADO NORMALIZADO ---
   const filteredCards = useMemo(() => {
     if (filterType === "all") return flashcards;
     if (filterType === "difficulty") return flashcards.filter(c => c.difficulty === filterValue);
     if (filterType === "materia") {
-      // 🔥 Como filterValue ya viene normalizado desde el Sidebar, 
-      // solo comparamos el topic de la tarjeta (también normalizado)
       return flashcards.filter(c => normalize(c.topic) === filterValue);
     }
     return flashcards;
   }, [flashcards, filterType, filterValue]);
 
-  // --- LISTA DE MATERIAS ÚNICAS NORMALIZADAS ---
   const materiasUnicas = useMemo(() => {
     const list = flashcards.map(c => c.topic).filter(t => t && t !== "");
-    // Obtenemos los valores únicos normalizados
     const unique = Array.from(new Set(list.map(t => normalize(t))));
     return unique.sort((a, b) => a.localeCompare(b));
   }, [flashcards]);
@@ -51,8 +45,9 @@ const StudyCards = () => {
     setIsAnswerVisible(false);
   }, [filterType, filterValue]);
 
-  const card = filteredCards[currentIndex];
   const hasCards = filteredCards.length > 0;
+  const safeIndex = hasCards ? Math.min(currentIndex, filteredCards.length - 1) : 0;
+  const card = filteredCards[safeIndex] ?? null;
 
   const handleClick = () => {
     if (!isAnswerVisible) {
@@ -93,13 +88,13 @@ const StudyCards = () => {
 
       <StudyMain
         hasCards={hasCards}
-        currentIndex={currentIndex}
+        currentIndex={safeIndex}
         total={filteredCards.length}
         card={card}
         showAnswer={isAnswerVisible}
         handleClick={handleClick}
         onMenuClick={toggleMenu}
-        menuOpen={menuOpen} 
+        menuOpen={menuOpen}
       />
     </div>
   );

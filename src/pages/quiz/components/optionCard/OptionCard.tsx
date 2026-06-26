@@ -11,7 +11,6 @@ type Props = {
 const OptionCard = ({
     text,
     isCorrect,
-    isSelected,
     flipped,
     onClick,
 }: Props) => {
