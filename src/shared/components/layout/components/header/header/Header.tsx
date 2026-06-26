@@ -3,6 +3,9 @@ import { NavLink } from "react-router"; // Ojo, en versiones nuevas suele ser "r
 import style from "./header.module.css";
 import { ROUTES } from "../../../utils/routes";
 
+// ACÁ IMPORTAMOS EL LOGO (usamos @ para ir directo a src)
+import logoF from "@/assets/logo-f.png";
+
 const Header = () => {
   // Estado para controlar si el menú de celular está abierto o cerrado
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,9 +17,9 @@ const Header = () => {
     <header className={style.header}>
       <div className={style.inner}>
         
-        {/* LOGO */}
+        {/* LOGO (Ahora usa la variable importada) */}
         <span className={style.brand}>
-          <img src="/logo-f.png" alt="Flashwise Logo" className={style.logoImage} />
+          <img src={logoF} alt="Flashwise Logo" className={style.logoImage} />
           <span className={style.brandName}>Flashwise</span>
         </span>
 

@@ -1,4 +1,6 @@
 import style from "./footer.module.css";
+// ACÁ IMPORTAMOS EL LOGO
+import logoF from "@/assets/logo-f.png";
 
 const Footer = () => {
   return (
@@ -7,7 +9,8 @@ const Footer = () => {
         
         {/* 1. LOGO A LA IZQUIERDA */}
         <div className={style.brand}>
-          <img src="/logo-f.png" alt="Flashwise Logo" className={style.logo} />
+          {/* Usamos la variable importada sin comillas */}
+          <img src={logoF} alt="Flashwise Logo" className={style.logo} />
           <span className={style.brandName}>Flashwise</span>
         </div>
 
