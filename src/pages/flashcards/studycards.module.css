@@ -34,8 +34,12 @@
   align-items: center;
   border-radius: 25px; 
   text-align: center;
-  padding: 15px;
+  padding: 30px;
   box-sizing: border-box;
+  /* 🔹 CORRECCIÓN: Eliminamos scroll y forzamos ruptura de texto largo */
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .front {
@@ -128,7 +132,8 @@
   justify-content: center !important;
   align-items: center !important;
   font-family: 'Inter', sans-serif;
-  font-size: 2.2rem !important;
+  /* 🔹 CORRECCIÓN: Tamaño dinámico que se achica si el texto es muy largo */
+  font-size: clamp(1rem, 4vw, 2.2rem) !important;
   font-weight: 900 !important;
   color: #000000 !important;
   padding: 40px !important;
@@ -137,7 +142,8 @@
 
 .answerContent {
     font-family: 'Lora', serif;
-    font-size: 3rem !important;
+    /* 🔹 CORRECCIÓN: Tamaño dinámico que se achica si el texto es muy largo */
+    font-size: clamp(0.8rem, 3.5vw, 1.8rem) !important;
     font-weight: 800 !important;
     color: #000000 !important;
     display: flex;
@@ -190,18 +196,19 @@
   justify-content: flex-start;
   gap: 15px;
   position: relative; 
+  z-index: 1;
 }
 
 /* 🔹 LAYOUT */
 .layout {
   display: flex;
-  padding-top: 90px; /* 👈 En compu arranca a los 90px */
+  padding-top: 90px;
 }
 
 @media (max-width: 1024px) {
   .layout {
     flex-direction: column;
-    padding-top: 90px; /* 👈 CORRECCIÓN: Le damos los mismos 90px en celular para que no toque el NavBar */
+    padding-top: 90px;
   }
 
   .layout aside {
@@ -232,10 +239,10 @@
   }
 }
 
-/* 🔹 CONTADOR ESTILO PASTILLA (Para StudyCards) */
+/* 🔹 CONTADOR ESTILO PASTILLA */
 .counterPill {
   background: linear-gradient(135deg, #fbcfe8, #ddd6fe, #bfdbfe);
-  color: #374151; /* Color de texto oscuro para que se lea bien */
+  color: #374151;
   padding: 8px 24px;
   border-radius: 999px;
   font-weight: 700;
