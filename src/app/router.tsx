@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import { RootLayout } from "../shared/components/layout/RootLayout"; 
 import { HomePage } from "@/pages/home/HomePage";
 import { CreateCards } from '@/pages/createCard/CreateCards';
@@ -7,7 +7,7 @@ import StudyCards from '../pages/flashcards/StudyCards';
 import Quiz from '../pages/quiz/Quiz';
 import ProgressPage from '../pages/progress/ProgressPage';
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
     {
         path: "/",
         element: <RootLayout />,
@@ -20,7 +20,4 @@ export const router = createBrowserRouter([
             { path: "progress", element: <ProgressPage /> },
         ],
     },
-], {
-    
-    basename: '/Proyecto-grupo-3/'
-});
+]);
