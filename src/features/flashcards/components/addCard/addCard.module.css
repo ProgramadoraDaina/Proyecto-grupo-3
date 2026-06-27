@@ -22,6 +22,23 @@
   box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
 }
 
+/* ─── Títulos con Degradado ─── */
+.gradientTitle {
+  font-family: 'Lora', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #fb923c, #c084fc);
+  
+  /* Versión para navegadores basados en Webkit (Chrome, Safari, etc.) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Propiedad estándar para compatibilidad total */
+  background-clip: text;
+  
+  margin-bottom: 0.5rem;
+}
+
 /* ─── Burbujas Aesthetic (Glassmorphism) ─── */
 .bubbleGroup {
   background: rgba(255, 255, 255, 0.45);

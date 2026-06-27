@@ -12,12 +12,15 @@
   padding: 100px 20px 80px; 
   box-sizing: border-box;
   text-align: left;
+  /* Espaciado del navbar */
+  padding-top: 40px; 
+  min-height: 100vh;
 }
 
 .animatedTitle {
   font-family: 'Lora', serif;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 600; /* Un poquito más grueso para que absorba más color */
+  font-weight: 600;
   margin: 40px 0 20px 0;
   
   /* Gradiente ultra intenso y saturado */
@@ -34,7 +37,6 @@
   background-clip: text;
   
   display: block;
-  /* Esto ayuda a que el degradado se vea más nítido en pantallas de alta resolución */
   -webkit-text-stroke: 0.1px rgba(255, 255, 255, 0.1); 
 }
 

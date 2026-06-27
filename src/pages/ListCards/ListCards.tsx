@@ -11,10 +11,11 @@ const ListCards = () => {
   return (
     <div className={style.container}> 
       {editingId ? (
-        // APLICAMOS LA CLASE DE CONTENEDOR DE LA BURBUJA AQUÍ
         <section className={addStyle.formContainer}>
+          
+          {/* TÍTULO APLICADO CON DEGRADADO Y FUENTE LORA */}
           <div className={addStyle.headerContainer}>
-            <h2 className={addStyle.animatedTitle}>Editar Flashcard</h2>
+            <h2 className={addStyle.gradientTitle}>Editar Flashcard</h2>
             <p className={addStyle.animatedSubtitle}>Modificá los datos de tu tarjeta</p>
           </div>
           
