@@ -6,12 +6,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 
-/* ─── CONTENEDOR PRINCIPAL CON ESPACIO PARA NAVBAR ─── */
+/* ─── CONTENEDOR PRINCIPAL CENTRADO ─── */
 .container {
-  width: 100%;
-  padding-top: 120px; 
+  width: 90%;            /* Ocupa el 90% en móviles */
+  max-width: 1200px;     /* Limita el ancho máximo en escritorio */
+  margin: 0 auto;        /* Centra el contenedor horizontalmente */
+  padding-top: 140px; 
   padding-bottom: 80px;
   min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .animatedTitle {
@@ -37,14 +41,16 @@
   -webkit-text-stroke: 0.1px rgba(255, 255, 255, 0.1); 
 }
 
-/* ─── GRID DE LISTADO ─── */
+/* ─── GRID DE LISTADO FLEXIBLE (Corregido para no cortarse) ─── */
 .list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
-  gap: 24px;
-  list-style: none;
+  /* Usamos '1fr' como base y min() para asegurar que nunca exceda el contenedor */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 20px;
+  width: 100%;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* ─── OTROS ESTILOS ─── */
@@ -59,16 +65,31 @@
   margin-top: 40px;
 }
 
-/* ─── RESPONSIVE (Celulares y Tablets) ─── */
+/* ─── RESPONSIVE (Tablets y celulares grandes) ─── */
 @media (max-width: 768px) {
   .container {
-    padding-top: 90px;
+    width: 95%; /* Un poco más de ancho en tablets para aprovechar espacio */
+    padding-top: 120px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .list { 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+  } 
+}
+
+/* ─── RESPONSIVE (Celulares pequeños) ─── */
+@media (max-width: 600px) {
+  .container {
+    padding-top: 100px !important; 
     padding-left: 16px;
     padding-right: 16px;
     padding-bottom: 40px;
   }
   
   .list { 
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr; /* Una sola columna en móviles muy pequeños */
   } 
 }
