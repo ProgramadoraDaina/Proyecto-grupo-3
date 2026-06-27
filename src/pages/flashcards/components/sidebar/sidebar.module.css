@@ -14,8 +14,8 @@
     flex-direction: column;
     gap: 20px;
     
-    /* 🔹 Un blanco más suave (80% opacidad) para mantener el estilo vidrio */
-    background: rgba(255, 255, 255, 0.8);
+    /* 🔹 Modificaciones para matar la transparencia y mejorar lectura */
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 9999;
@@ -47,7 +47,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between; 
-  margin-bottom: 5px;
   width: 100%;
 }
 
