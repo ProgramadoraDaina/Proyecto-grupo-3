@@ -13,9 +13,15 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background: rgba(255, 255, 255, 0.2);
+    
+    /* 🔹 Un blanco más suave (80% opacidad) para mantener el estilo vidrio */
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    z-index: 9999;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+    /* -------------------------------------------------------------- */
+    
     opacity: 0;
     overflow: hidden;
     margin: 0 !important;
@@ -29,18 +35,18 @@
     opacity: 1;
     overflow: visible;
     border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     margin-top: 20px !important; 
     margin-left: 20px !important; 
-    margin-bottom: 20px !important; /* Separamos del footer */
-    height: calc(100vh - 180px) !important; /* Más corto */
+    margin-bottom: 20px !important; 
+    height: calc(100vh - 180px) !important; 
 }
 
 /* ─── Header del Sidebar ─── */
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 👈 Esto manda el botón a la derecha */
+  justify-content: space-between; 
   margin-bottom: 5px;
   width: 100%;
 }
@@ -127,7 +133,7 @@
         position: fixed;
         top: 80px; 
         left: -100%;
-        height: calc(100vh - 160px) !important; /* Más corto en cel también */
+        height: calc(100vh - 160px) !important; 
         width: 280px !important; 
         padding: 24px !important;
         opacity: 1 !important;
