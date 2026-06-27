@@ -1,7 +1,8 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { AreaChart, Area, CartesianGrid, Tooltip, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { Flame, Layers, Target, Quote, Clock } from "lucide-react"; 
 import { useFlashcardStore, type FlashcardState } from "../../features/flashcards/store"; 
+import { useTime } from "@/shared/context/TimeContext"; // <-- Importamos tu nuevo hook global
 import styles from "./progressPage.module.css"; 
 
 const Wave = ({ startColor, endColor, id }: { startColor: string, endColor: string, id: string }) => (
@@ -19,8 +20,8 @@ const Wave = ({ startColor, endColor, id }: { startColor: string, endColor: stri
 const PIE_COLORS = { easy: "#86efac", medium: "#fcd34d", hard: "#fca5a5" };
 
 export default function ProgressPage() {
-  const [time, setTime] = useState(0);
   const [filterDays, setFilterDays] = useState(7); 
+  const { totalTime } = useTime(); // <-- Traemos el tiempo global de la app
 
   const cards = useFlashcardStore((s: FlashcardState) => s.flashcards);
   const quizHistory = useFlashcardStore((s: FlashcardState) => s.quizHistory);
@@ -70,7 +71,7 @@ export default function ProgressPage() {
     { name: 'Medium', value: mediumCount, color: PIE_COLORS.medium },
     { name: 'Hard', value: hardCount, color: PIE_COLORS.hard }
   ];
-
+  
   const totalScore = quizHistory.reduce((acc, curr) => acc + curr.score, 0);
   const totalPossible = quizHistory.reduce((acc, curr) => acc + curr.total, 0);
   const effectiveness = totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : 0;
@@ -108,11 +109,6 @@ export default function ProgressPage() {
 
   const dynamicChartData = getChartData();
 
-  useEffect(() => {
-    const timer = setInterval(() => setTime(prev => prev + 1), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   const formatTime = (totalSeconds: number) => {
     const h = Math.floor(totalSeconds / 3600);
     const m = Math.floor((totalSeconds % 3600) / 60);
@@ -130,7 +126,7 @@ export default function ProgressPage() {
           <Clock size={20} color="#8b5cf6" />
         </div>
         <span className={styles.timerText}>Tiempo conectado:</span>
-        <span className={styles.timerValue}>{formatTime(time)}</span>
+        <span className={styles.timerValue}>{formatTime(totalTime)}</span> {/* <-- Mostramos la variable global */}
         
         <div className={styles.timerStatus}>
           <span className={styles.statusDot}></span>
@@ -180,8 +176,8 @@ export default function ProgressPage() {
           <span className={styles.cardSubtitle}>promedio de aciertos</span>
           <Wave startColor="#22c55e" endColor="#86efac" id="wave3" />
         </div>
-      </div>
-
+      </div> 
+      
       <div className={styles.bottomGrid}>
         <div className={styles.glassCard} style={{ 
           background: "linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(221, 214, 254, 0.2) 100%)", 
@@ -197,7 +193,6 @@ export default function ProgressPage() {
             </select>
           </div> 
           
-          {/* TRUCO 99% y HEIGHT 220 APLICADOS AQUÍ */}
           <ResponsiveContainer width="99%" height={220}>
             <AreaChart data={dynamicChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
               <defs>
@@ -223,11 +218,8 @@ export default function ProgressPage() {
           <div className={styles.chartHeader}>
             <p className={styles.cardTitle} style={{ margin: 0 }}>Distribución de Dificultad</p>
           </div>
-
           <div className={styles.pieContent}>
             <div className={styles.pieWrapper}>
-              
-              {/* TRUCO 99% y HEIGHT 220 APLICADOS AQUÍ */}
               <ResponsiveContainer width="99%" height={220}>
                 <PieChart>
                   <Pie data={pieData} innerRadius={50} outerRadius={75} dataKey="value" stroke="none">
