@@ -2,6 +2,8 @@ import { useFlashcardStore } from "@/features/flashcards/store";
 import { FlashcardItem } from "@/features/flashcards/components/cardItem/CardItem";
 import type { Flashcard } from "@/features/flashcards/types";
 import { useState, useMemo } from "react";
+// 1. 🔹 IMPORTAMOS createPortal DESDE react-dom 🔹
+import { createPortal } from "react-dom"; 
 import style from "./cardList.module.css";
 
 interface FlashcardListProps {
@@ -143,8 +145,10 @@ export function FlashcardList({ onEdit }: FlashcardListProps) {
         )}
       </ul>
 
-      {/* ─── MODALES ─── */}
-      {editModalId && (
+      {/* 2. 🔹 ACÁ APLICAMOS createPortal PARA SACARLOS DEL CONTENEDOR 🔹 */}
+      
+      {/* ─── MODAL EDITAR ─── */}
+      {editModalId && createPortal(
         <div className={style.modalOverlay}>
           <div className={style.modalContent}>
             <p>¿Seguro que quiere editar esta tarjeta de estudio?</p>
@@ -153,10 +157,12 @@ export function FlashcardList({ onEdit }: FlashcardListProps) {
               <button onClick={() => setEditModalId(null)} className={`${style.modalBtn} ${style.btnNo}`}>No</button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
-      {deleteModalId && (
+      {/* ─── MODAL BORRAR ─── */}
+      {deleteModalId && createPortal(
         <div className={style.modalOverlay}>
           <div className={style.modalContent}>
             <p>¿Seguro que quiere borrar esta tarjeta de estudio?</p>
@@ -165,7 +171,8 @@ export function FlashcardList({ onEdit }: FlashcardListProps) {
               <button onClick={() => setDeleteModalId(null)} className={`${style.modalBtn} ${style.btnNo}`}>No</button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
     </div>
