@@ -4,9 +4,8 @@
 
 Este proyecto constituye la entrega del **Segundo Proyecto Integrador del Módulo de React**, cumpliendo con los requisitos de desarrollo frontend moderno sin depender de APIs o bases de datos externas.
 
-🔗 **Deploy de la aplicación:** [Flashwise Live](https://shadowia-sofiazilijosky.github.io/Proyecto-grupo-3/)
-🔗 **Repositorio (Estable):** [GitHub Repo](https://github.com/shadowia-sofiazilijosky/Proyecto-grupo-3.git) 
-*(Nota: Este repositorio es un fork utilizado como versión estable definitiva para preservar la integridad del código y los despliegues frente a problemas técnicos en el repositorio original).*
+🔗 **Deploy de la aplicación:** [Flashwise Live](https://programadoradaina.github.io/Proyecto-grupo-3/)
+🔗 **Repositorio (Estable):** [GitHub Repo](https://github.com/ProgramadoraDaina/Proyecto-grupo-3.git) 
 
 ---
 
@@ -98,11 +97,13 @@ src/
 ├── pages/                # Vistas enrutables (Home, CreateCards, ListCards, StudyCards, Quiz, Progress).
 └── shared/               # Componentes transversales (RootLayout, Headers, UI base, TimeContext global).
 
+---
+
 💻 INSTALACIÓN Y USO LOCAL
 Para levantar este proyecto en tu entorno de desarrollo local:
 
 1. Clona este repositorio:
-git clone [https://github.com/shadowia-sofiazilijosky/Proyecto-grupo-3.git](https://github.com/shadowia-sofiazilijosky/Proyecto-grupo-3.git)
+git clone [https://github.com/ProgramadoraDaina/Proyecto-grupo-3.git](https://github.com/ProgramadoraDaina/Proyecto-grupo-3.git)
 
 2. Instala las dependencias necesarias:
 npm install
